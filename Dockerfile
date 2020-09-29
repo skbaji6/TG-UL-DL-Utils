@@ -5,13 +5,11 @@ RUN mkdir ./app
 RUN chmod 777 ./app
 WORKDIR ./app
 
-RUN apt -qq update
-
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kolkata
 
 
-RUN apt -qq install -y git aria2 wget curl busybox unzip unrar tar python3 ffmpeg python3-pip
+RUN apt -qq update && apt -qq install -y git wget curl busybox unzip unrar tar python3 ffmpeg python3-pip
 RUN wget https://rclone.org/install.sh
 RUN bash install.sh
 
